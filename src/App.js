@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Navbar } from './components/Navbar'
 import { Search } from './components/Search'
 import { UserList } from './components/UserList'
-import { getUsers, getUser } from './api'
+import { getUsers, getUser, searchUsers } from './api'
 import './App.css'
 
 const App = () => {
@@ -12,12 +12,13 @@ const App = () => {
     getUsers().then(data => setUsers(data))
   }, [])
   const HandleSearch = () => {
-    if (search.trim()) getUser(search.trim()).then(res => setUsers([res]))
+    if (search.trim()) searchUsers(search.trim()).then(res => setUsers(res))
     else getUsers().then(data => setUsers(data))
   }
   const HandleKeyPress = e => {
     if (e.key === 'Enter') {
-      if (search.trim()) getUser(search.trim()).then(res => setUsers([res]))
+      if (search.trim())
+        searchUsers(search.trim()).then(res => setUsers(res.items))
       else getUsers().then(data => setUsers(data))
     }
   }

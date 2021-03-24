@@ -1,5 +1,5 @@
 const API_URL = 'https://api.github.com'
-const TOKEN = 'cf8c44604666f70f4c2f79aced95170809dab36c'
+const TOKEN = '0ffd892b48fcf1f93251227a0293fcdde224c141'
 
 const getUsers = async () => {
   const res = await fetch(`${API_URL}/users?per_page=100`, {
@@ -23,4 +23,15 @@ const getUser = async username => {
   return data
 }
 
-export { getUser, getUsers }
+const searchUsers = async username => {
+  const res = await fetch(`${API_URL}/search/users?q=${username}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `token ${TOKEN}`,
+    },
+  })
+  const data = await res.json()
+  return data
+}
+
+export { getUser, getUsers, searchUsers }
