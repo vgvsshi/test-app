@@ -1,0 +1,37 @@
+.input-field {
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  input {
+    border: 1px solid #e6e7ef;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin-right: 15px;
+    border-radius: 3px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+  }
+  button {
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      right bottom,
+      from(#6cc0cd),
+      to(#416bff)
+    );
+    background-image: linear-gradient(to right bottom, #6cc0cd, #416bff);
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 20px 30px;
+    color: white;
+    outline: none;
+    &:hover {
+      background-image: linear-gradient(to left top, #6cc0cd, #416bff);
+    }
+  }
+}
